@@ -89,7 +89,7 @@ const updateCompany = asyncHandler(async (req, res) => {
 const deleteCompany = asyncHandler(async (req, res) => {
     const company = await Company.findById(req.params.id);
     if (company) {
-        await Company.findOneAndDelete(req.params.id);
+        await Company.findByIdAndRemove(req.params.id);
         res.json({ message: 'Company removed' });
     }
     else {
